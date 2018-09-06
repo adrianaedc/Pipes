@@ -20,12 +20,12 @@ int main(){
     pipe(descr_two);
 
     if (fork() == 0){ //Proceso hijo
-        frase="El padre prueba al hijo si la transferencia es buena";
+        frase="Proceso HIJO envia mensaje al Padre";
         escribir(descr_one,frase);
         leer(descr_two, mensaje, bytesleidos);
     }else{ //Proceso Padre
         leer(descr_one, mensaje, bytesleidos);
-        frase="***El hijo prueba al padre si la transferencia es buena***";
+        frase="Proceso PADRE envia mensaje al Hijo";
         escribir(descr_two,frase);
     }//if - else
     return 0;
